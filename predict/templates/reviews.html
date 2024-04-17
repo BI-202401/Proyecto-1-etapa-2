@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="content">
+  <div class="">
+    <div
+      class="page-header-title"
+      data-aos="fade-down"
+      data-aos-duration="1600"
+    >
+      <h1 class="page-title" style="text-align: center">
+        Clasificación de reseñas
+      </h1>
+      <div style="text-align: right"></div>
+    </div>
+  </div>
+
+  <br />
+
+  <div
+    class="page-content-wrapper"
+    data-aos="fade-down"
+    data-aos-duration="1500"
+  >
+    <div class="container">
+      <!-- Content page -->
+      <div style="display: flex; justify-content: center">
+        <a class="nav-link" href="/reviewcreate/">
+          <button
+            class="btn btn-primary"
+            data-aos="fade-down"
+            data-aos-duration="1500"
+            href="/reviewcreate"
+          >
+            <i class="fa-solid fa-plus"></i> Añadir reseña y clasificarla
+          </button>
+        </a>
+      </div>
+      <br />
+      <br />
+
+      <div class="panel panel-default">
+        <div class="panel-body" data-aos="fade-down" data-aos-duration="1500">
+          <table
+            class="table table-hover table-light"
+            data-aos="fade-down"
+            data-aos-duration="1500"
+          >
+            <thead>
+              <tr style="color: #374f59">
+                <th>Reseña</th>
+                <th>Calificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for review in review_list %}
+              <tr>
+                <td>{{ review.review }}</td>
+                <td>{{ review.classification }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

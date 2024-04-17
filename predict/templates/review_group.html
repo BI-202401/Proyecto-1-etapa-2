@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="content">
+  <div class="">
+    <div
+      class="page-header-title"
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
+      <h1 class="page-title" style="text-align: center">
+        Clasificación de reseñas
+      </h1>
+      <div style="text-align: right"></div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="page-content-wrapper">
+    <div class="container">
+      <!-- Content page -->
+
+      <div class="filter">
+        <select id="rating-filter" name="rating-filter">
+          <option value="">Todos</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <button>Filtrar</button>
+
+        <table class="table table-hover table-light">
+          <thead>
+            <tr style="color: #374f59">
+              <th>Reseña</th>
+              <th>Calificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for review in review_list %} {% if review.classification == 5 %}
+            <tr>
+              <td>{{ review.review }}</td>
+              <td>{{ review.classification }}</td>
+            </tr>
+            {% endif %} {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

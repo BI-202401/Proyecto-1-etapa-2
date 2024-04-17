@@ -1,0 +1,3 @@
+django
+fontawesomefree
+djangocms-animate-on-scroll

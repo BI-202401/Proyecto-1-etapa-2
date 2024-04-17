@@ -4,25 +4,52 @@
   style="
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: 90dvh;
     text-align: center;
   "
+  data-aos="fade-down"
+  data-aos-duration="1500"
 >
   <img
     style="width: 90dvh"
     src="/static/media/banner2.png"
     class="pb-5"
     alt="image"
+    data-aos="fade-down"
+    data-aos-duration="1500"
   />
 
-  <h1>Bienvenido al proyecto de analítica de textos para reseñas</h1>
-  <p>
-    En este proyecto el objetivo es hacer la clasificación de reseñas que
-    influyen en la popularidad de los destinos turísticos y en la satisfacción
-    de los turistas para mejorar la oferta en Colombia y fomentar esta área.
+  <h1>Bienvenidos al proyecto de analítica de textos para reseñas</h1>
+  <div
+    data-aos="fade-down"
+    data-aos-duration="1500"
+    class="container-white"
+    style="text-align: justify"
+  >
+    <p data-aos="fade-down" data-aos-duration="1500">
+      En este proyecto el <strong>OBJETIVO</strong> es hacer la clasificación de reseñas que
+      influyen en la popularidad de los destinos turísticos y en la satisfacción
+      de los turistas para mejorar la oferta en Colombia y fomentar esta área.
+    </br>
+    </br>
+    Se usaron técnicas de procesamiento de lenguaje natural, análisis de texto y aprendizaje automático para procesar y analizar reseñas turísticas. Se propuso el uso del algoritmo de clasificación Support Vector Classifier (SVC) junto con técnicas de vectorización de texto como TF-IDF (Term Frequency-Inverse Document Frequency). Además, se emplearon métricas de evaluación como precisión, recall y F1-score para evaluar el rendimiento del modelo y se discutirieron observando a detalle sus matrices de confusión respecto a los datos de validación y test.
+    </br>
+    </br>
+    A modo de historia de usuario, una posible descripción del requerimiento es: 
+    </br>
+    </br>
+    <em style="padding-inline: 3%;">
+    “Como empresa o sector perteneciente al sector turístico en Colombia, quiero predecir la puntuación entre calificaciones del 1 al 5 de nuevos comentarios para conocer la satisfacción de los clientes  e identificar las oportunidades de mejora pertinentes.”
+    </em>
+    </br>
+    </br>
+    La aplicación está dirigida a ciudadanos y empresas del Sector Turístico, así como el Departamento de Turismo de Colombia.
+    </br>
+    </br>
+    <strong>¡Los invitamos a explorar la aplicación!</strong>
   </p>
+  </div>
 </div>
 
 {% endblock %}
