@@ -3,14 +3,99 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ReviewForm
-from .logic.logic import get_reviews, create_review
+from .logic.logic import get_reviews, get_reviews_filter, get_reviews_group_filter
 from .predictor import predict
 
 
 def review_list(request):
     reviews = get_reviews()
     context = {
-        'review_list': reviews
+        'review_list': reviews,
+        'filter': False,
+        'quantity': len(reviews)
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_all(request):
+    reviews = get_reviews()
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_bad(request):
+    reviews = get_reviews_group_filter(1, 2)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_good(request):
+    reviews = get_reviews_group_filter(4, 5)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_1(request):
+    reviews = get_reviews_filter(1)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_2(request):
+    reviews = get_reviews_filter(2)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_3(request):
+    reviews = get_reviews_filter(3)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_4(request):
+    reviews = get_reviews_filter(4)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
+    }
+    return render(request, 'reviews.html', context)
+
+
+def review_list_5(request):
+    reviews = get_reviews_filter(5)
+    context = {
+        'review_list': reviews,
+        'filter': True,
+        'quantity': len(reviews)
     }
     return render(request, 'reviews.html', context)
 

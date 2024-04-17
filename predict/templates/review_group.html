@@ -8,46 +8,281 @@
       data-aos-duration="1500"
     >
       <h1 class="page-title" style="text-align: center">
-        Clasificación de reseñas
+        Filtrar reseñas por calificación
       </h1>
+      <p data-aos="fade-down" data-aos-duration="1500">
+        En esta sección, puedes filtrar las reseñas por calificación, siendo grupos de comentarios que dan un contexto (malo, regular, bueno).
+        Simplemente haz clic en uno de los botones de clases para ver las
+        reseñas que tienen un contexto específico. Por ejemplo, si haces
+        clic en "Malo", se mostrarán todas las reseñas que han sido
+        calificadas con una o dos estrellas.
+      </p>
       <div style="text-align: right"></div>
     </div>
   </div>
 
   <br />
 
-  <div class="page-content-wrapper">
+  <div
+    class="page-content-wrapper"
+    data-aos="fade-down"
+    data-aos-duration="1500"
+  >
     <div class="container">
       <!-- Content page -->
 
-      <div class="filter">
-        <select id="rating-filter" name="rating-filter">
-          <option value="">Todos</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+      <div class="row" data-aos="fade-down" data-aos-duration="1500">
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card1.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-regular fa-star"></i></span>
+                </br>Malas reseñas
+              </h5>
+                <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las malas reseñas son aquellas que han sido calificadas con una o dos estrellas teniendo en 
+                cuenta la probabilidad del modelo. 
+                Esto mitiga incertidumbres de predicción y de resultados en rangos con mayor confiabilidad.
+                </p>
+              </p>
 
-        <button>Filtrar</button>
+              <div style="display: flex; justify-content: center;"><a href="/predict/bad" class="btn btn-primary">ver malas reseñas</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card2.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span>
+                </br>Reseñas regulares
+              </h5>
+              <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las reseñas regulares son aquellas que han sido calificadas con tres estrellas teniendo en 
+                cuenta la probabilidad del modelo, que al tener contextos medianamiente equilibrados debe ser observado más a detalle. 
+              </p>
 
-        <table class="table table-hover table-light">
-          <thead>
-            <tr style="color: #374f59">
-              <th>Reseña</th>
-              <th>Calificación</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for review in review_list %} {% if review.classification == 5 %}
-            <tr>
-              <td>{{ review.review }}</td>
-              <td>{{ review.classification }}</td>
-            </tr>
-            {% endif %} {% endfor %}
-          </tbody>
-        </table>
+              <div style="display: flex; justify-content: center;"><a href="/predict/medium" class="btn btn-primary">Ver reseñas regulares</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card3.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-solid fa-star"></i></span>
+                <span><i class="fa-regular fa-star"></i></span>
+                </br>Buenas reseñas
+              </h5>
+              <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las buenas reseñas son aquellas que han sido calificadas con cuatro o cinco estrellas teniendo en 
+                cuenta la probabilidad del modelo de notar un contexto positivo. 
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/good" class="btn btn-primary">Ver buenas reseñas</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="">
+    <div
+      class="page-header-title"
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
+      <h1 class="page-title" style="text-align: center">
+        Filtrar reseñas por estrellas
+      </h1>
+      <p data-aos="fade-down" data-aos-duration="1500">
+        En esta sección, puedes filtrar las reseñas por estrellas.
+        Simplemente haz clic en uno de los botones de estrellas para ver las
+        reseñas que tienen esa calificación específica. Por ejemplo, si haces
+        clic en "1 estrella", se mostrarán todas las reseñas que han sido
+        calificadas con una estrella. Si prefieres ver todas las reseñas sin
+        importar la calificación, puedes hacer clic en el botón "Todos".
+      </p>
+      <div style="text-align: right"></div>
+    </div>
+  </div>
+
+  <br />
+
+  <div
+    class="page-content-wrapper"
+    data-aos="fade-down"
+    data-aos-duration="1500"
+  >
+    <div class="container">
+      <!-- Content page -->
+
+      <div class="row" data-aos="fade-down" data-aos-duration="1500">
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card1.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span>
+                </br>Muy malo
+              </h5>
+                <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las muy malas reseñas son aquellas que han sido calificadas con una estrella. 
+                Es importante prestar atención a estas reseñas para identificar posibles áreas de mejora y tomar medidas 
+                para brindar una mejor experiencia a los usuarios.
+                </p>
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/1" class="btn btn-primary">1 estrella</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card2.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span>
+                </br>Malo
+              </h5>
+              <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las malas reseñas son aquellas que han sido calificadas con dos estrellas. 
+                Son consideradas puntos de mejora y se deben tener en cuenta para brindar una mejor experiencia a los usuarios.
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/2" class="btn btn-primary">2 estrellas</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card3.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span>
+                </br>Neutro
+              </h5>
+              <p class="card-text" style="min-height: 15rem; display: flex; align-items:center; text-align: center;">
+                Las reseñas neutras reseñas son aquellas que han sido calificadas con tres estrellas. 
+                Al tener un poco de ambos contextos es importante prestar atención a estas reseñas para identificar posibles áreas de mejora.
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/3" class="btn btn-primary">3 estrellas</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" data-aos="fade-down" data-aos-duration="1500">
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card4.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span>
+                </br>Bueno
+              </h5>
+              <p class="card-text" style="min-height: 17rem; display: flex; align-items:center; text-align: center;">
+                Las buenas reseñas son aquellas que han sido calificadas con cuatro estrellas. 
+                Estas reseñas son consideradas positivas y son un indicador de que los usuarios han tenido una buena experiencia. Son puntos de seguir manteniendo.
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/4" class="btn btn-primary">4 estrellas</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card5.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                 <span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span
+                ><span><i class="fa-solid fa-star"></i></span>
+                </br>Muy bueno
+              </h5>
+              <p class="card-text" style="min-height: 17rem; display: flex; align-items:center; text-align: center;">
+                Las muy buenas reseñas son aquellas que han sido calificadas con cinco estrellas. 
+                Estas reseñas son consideradas muy positivas y son un indicador de que los usuarios han tenido una excelente experiencia, 
+                donde se debe aumentar los puntos que destacan.
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/5" class="btn btn-primary">5 estrellas</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-3 py-3 px-4">
+          <div class="card" style="width: 16rem;">
+            <img
+              class="card-img-top" style="height: 10rem"
+              src="/static/media/card6.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title star" style="text-align: center">
+                <span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span><span><i class="fa-regular fa-star"></i></span>
+              </br>Todas las reseñas</h5>
+              <p class="card-text" style="min-height: 17rem; display: flex; align-items:center; text-align: center;">
+                Si prefieres ver todas las reseñas sin
+                importar la calificación, puedes hacer clic en el botón "Todos". A veces es importante tener una vista global al respecto.
+              </p>
+
+              <div style="display: flex; justify-content: center;"><a href="/predict/all" class="btn btn-primary">Todos</a></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
