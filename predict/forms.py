@@ -12,6 +12,6 @@ class ReviewForm(forms.ModelForm):
             'review': 'Escriba su reseña',
         }
         widgets = {
-            'review': forms.TextInput(attrs={'class': 'form-control'}),
+            'review': forms.Textarea(attrs={'class': 'form-control'}),
         }
         initial = {'classification': 5}

@@ -55,7 +55,39 @@
               {% for review in review_list %}
               <tr>
                 <td>{{ review.review }}</td>
-                <td>{{ review.classification }}</td>
+                <td style="font-size: 120%" class="star">
+                  {% if review.classification == 5 %}
+                  <span
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                  ></span>
+                  {% elif review.classification == 4 %}
+                  <span
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                  ></span>
+                  {% elif review.classification == 3 %}
+                  <span
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                  ></span>
+                  {% elif review.classification == 2 %}
+                  <span
+                    ><i class="fa-solid fa-star"></i
+                    ><i class="fa-solid fa-star"></i
+                  ></span>
+                  {% elif review.classification == 1 %}
+                  <span><i class="fa-solid fa-star"></i></span>
+                  {% else %}
+                  <span></span>
+                  {% endif %} ({{ review.classification }})
+                </td>
               </tr>
               {% endfor %}
             </tbody>

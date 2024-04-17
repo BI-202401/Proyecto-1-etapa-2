@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+from predictor import predict, tokenize, TextProcessor, clean_process, clean_vectorize
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LM_app.settings')

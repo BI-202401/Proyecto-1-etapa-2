@@ -1,17 +1,28 @@
 {% extends 'base.html' %} {% block content %}
-<form method="POST">
-  {% csrf_token %}
-  <br />
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-success waves-effect waves-light">
-    Crear reseña y clasificar
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary waves-effect waves-light"
-    onClick=" window.location.href='/predict' "
-  >
-    Atrás
-  </button>
-</form>
+<div data-aos="fade-down" data-aos-duration="1500">
+  <h1>Deje una reseña para clasificar</h1>
+  <form method="POST" data-aos="fade-down" data-aos-duration="1500">
+    {% csrf_token %}
+    <br />
+    {{ form.as_p }}
+    <button
+      type="submit"
+      class="btn btn-success waves-effect waves-light"
+      onClick=" window.location.href='/predict' "
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
+      Crear reseña y clasificar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary waves-effect waves-light"
+      onClick=" window.location.href='/predict' "
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
+      Atrás
+    </button>
+  </form>
+</div>
 {% endblock %}

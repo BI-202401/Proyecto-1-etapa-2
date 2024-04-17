@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ReviewForm
 from .logic.logic import get_reviews, create_review
+from .predictor import predict
 
 
 def review_list(request):
@@ -28,9 +29,8 @@ def review_create(request):
 
         if form.is_valid():
             review = form.save(commit=False)
-            # TODO añadir predicción del modelo
-            print(review.review)
-            review.classification = 5
+            text = review.review
+            review.classification = predict(text)
             review.save()
             messages.add_message(request, messages.SUCCESS,
                                  'Successfully created review')
