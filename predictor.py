@@ -7,6 +7,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem import SnowballStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import __main__
 
 
 def tokenize(data: pd.DataFrame):
@@ -75,3 +76,11 @@ def predict(review):
     new_data = pd.DataFrame({'Review': [review]})
 
     return pipeline.predict(new_data)[0]
+
+
+if __name__ == '__main__':
+    __main__.tokenize = tokenize
+    __main__.TextProcessor = TextProcessor
+    __main__.clean_process = clean_process
+    __main__.clean_vectorize = clean_vectorize
+    __main__.predict = predict
