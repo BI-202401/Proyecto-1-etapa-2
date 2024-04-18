@@ -1,8 +1,8 @@
 django
 fontawesomefree
 djangocms-animate-on-scroll
-psycopg2
 gunicorn
 django-database-url
 dj-database-url
 joblib
+pandas
