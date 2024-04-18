@@ -8,7 +8,7 @@
     <button
       type="submit"
       class="btn btn-success waves-effect waves-light"
-      onClick=" window.location.href='/predict' "
+      onClick="showNotification()"
       data-aos="fade-down"
       data-aos-duration="1500"
     >
@@ -17,12 +17,33 @@
     <button
       type="button"
       class="btn btn-primary waves-effect waves-light"
-      onClick=" window.location.href='/predict' "
       data-aos="fade-down"
       data-aos-duration="1500"
+      onClick=" window.location.href='/predict' "
     >
       Atrás
     </button>
   </form>
 </div>
-{% endblock %}
+
+{% if messages %}
+<div
+  class="notification my-5 py-2"
+  id="success-notification"
+  data-aos="fade-down"
+  data-aos-duration="1500"
+>
+  {% for message in messages %}
+  <h5><i class="fa-solid fa-circle-info"></i> {{ message }}</h5>
+  <button type="button" class="btn btn-success" onClick=" hideNotification() ">
+    Ok
+  </button>
+  {% endfor %}
+</div>
+
+<script>
+  function hideNotification() {
+    document.getElementById("success-notification").style.display = "none";
+  }
+</script>
+{% endif %} {% endblock %}

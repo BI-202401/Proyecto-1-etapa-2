@@ -109,6 +109,7 @@ def review_group(request):
 
 
 def review_create(request):
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
 
@@ -118,7 +119,8 @@ def review_create(request):
             review.classification = predict(text)
             review.save()
             messages.add_message(request, messages.SUCCESS,
-                                 'Successfully created review')
+                                 f'La reseña fue agregada exitosamente con una clasificación de {review.classification}')
+
             return HttpResponseRedirect(reverse('reviewCreate'))
         else:
             print(form.errors)

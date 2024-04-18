@@ -12,19 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block head %}
     <title>Reviews app</title>
@@ -34,6 +30,7 @@
     .navbar {
       background-color: #014f86 !important;
       height: 8.7vh;
+      z-index: 2;
     }
 
     h1,
@@ -98,7 +95,6 @@
 
     @keyframes shine {
       0% {
-        opacity: 1;
         scale: 1;
       }
       50% {
@@ -106,33 +102,67 @@
         scale: 3;
       }
       100% {
-        opacity: 1;
         scale: 1;
+      }
+    }
+
+    .notification {
+      background-color: rgba(212, 237, 218, 0.4);
+      color: #155724;
+      margin-bottom: 20px;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+      text-align: center;
+      width: 50rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #expanded {
+      background-color: #014f86;
+      display: none;
+      color: whitesmoke;
+      animation: showAnimationIn 0.3s ease-in-out;
+      z-index: 1;
+    }
+    @keyframes showAnimationIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
       }
     }
   </style>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">
-          <i
-            class="fa-regular fa-file-code"
-            style="font-size: 150%; padding-right: 10%"
-          ></i>
-          Reviews app
-        </a>
-      </nav>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand" href="/">
+        <i
+          class="fa-regular fa-file-code"
+          style="font-size: 150%; padding-right: 10%"
+        ></i>
+        Reviews app
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        onclick="showDiv()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/context/">Contexto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/metrics/">Métricas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/predict/">Predicciones</a>
@@ -143,6 +173,26 @@
         </ul>
       </div>
     </nav>
+    <div id="expanded" class="p-3">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/" style="color: white">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/context/" style="color: white">Contexto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/predict/" style="color: white"
+            >Predicciones</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviewgroup/" style="color: white"
+            >Filtrar</a
+          >
+        </li>
+      </ul>
+    </div>
 
     <br />
 
@@ -167,5 +217,31 @@
 
   <script>
     AOS.init();
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    function showDiv() {
+      var expandedDiv = document.getElementById("expanded");
+      if (expandedDiv.style.display === "none") {
+        expandedDiv.style.display = "block";
+      } else {
+        expandedDiv.style.display = "none";
+      }
+    }
   </script>
 </html>
