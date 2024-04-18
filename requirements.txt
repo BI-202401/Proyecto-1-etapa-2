@@ -8,4 +8,4 @@ joblib
 pandas
 nltk
 unicodedata2
-sklearn
+scikit-learn
