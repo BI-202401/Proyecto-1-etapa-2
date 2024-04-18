@@ -7,3 +7,5 @@ dj-database-url
 joblib
 pandas
 nltk
+unicodedata
+unicodedata2
