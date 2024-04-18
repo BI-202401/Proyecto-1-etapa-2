@@ -3,11 +3,16 @@ import unicodedata
 from joblib import load
 import pandas as pd
 import os
+import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import SnowballStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import __main__
+
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 
 def tokenize(data: pd.DataFrame):
