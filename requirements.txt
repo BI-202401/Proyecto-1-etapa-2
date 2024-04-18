@@ -6,3 +6,4 @@ django-database-url
 dj-database-url
 joblib
 pandas
+nltk
