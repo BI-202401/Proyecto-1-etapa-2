@@ -1,4 +1,4 @@
-from ..predictor import predict, tokenize, clean_process, clean_vectorize, TextProcessor
+from .predictor import predict, tokenize, clean_process, clean_vectorize, TextProcessor
 import __main__
 
 __main__.tokenize = tokenize
